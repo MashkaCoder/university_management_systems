@@ -26,7 +26,7 @@ CREATE TABLE Course_program(
 
 CREATE TABLE Faculty(
     id     INT PRIMARY KEY,
-    name   INT NOT NULL
+    name   VARCHAR(100) NOT NULL
 );
 
 CREATE TABLE Audience(
@@ -37,7 +37,7 @@ CREATE TABLE Audience(
 
 CREATE TABLE Semester(
     id          INT PRIMARY KEY,
-    name        INT NULL,
+    name        INT NOT NULL,
     date_start  DATE NOT NULL,
     date_end    DATE NOT NULL
 );
