@@ -13,15 +13,14 @@ CREATE TABLE Syllabus(
 
 CREATE TABLE Course(
     id          INT PRIMARY KEY,
-    name        VARCHAR(50) NOT NULL,
-    program_id  INT NOT NULL
+    name        VARCHAR(50) NOT NULL
 );
 
 CREATE TABLE Course_program(
     id              INT PRIMARY KEY,
     description     VARCHAR(500) NOT NULL,
-    ind_work_id     INT NOT NULL,
-    exam_id         INT NOT NULL
+    exam_id         INT NOT NULL,
+    course_id       INT NOT NULL
 );
 
 CREATE TABLE Faculty(
@@ -37,7 +36,7 @@ CREATE TABLE Audience(
 
 CREATE TABLE Semester(
     id          INT PRIMARY KEY,
-    name        INT NOT NULL,
+    name        VARCHAR(30) NOT NULL,
     date_start  DATE NOT NULL,
     date_end    DATE NOT NULL
 );
@@ -56,7 +55,7 @@ CREATE TABLE Department(
 
 CREATE TABLE Schedule(
     id                     INT PRIMARY KEY,
-    day_of_the_week        DATE NOT NULL,
+    day_of_the_week        VARCHAR(15) NOT NULL,
     time_start             TIME(0) WITHOUT TIME ZONE NOT NULL,
     time_end               TIME(0) WITHOUT TIME ZONE NOT NULL,
     teacher_id             INT NOT NULL,
@@ -64,7 +63,7 @@ CREATE TABLE Schedule(
     audience_id            INT NOT NULL
 );
 
-CREATE TABLE Schedule_сourse (
+CREATE TABLE Schedule_course (
     id              INT PRIMARY KEY,
     schedule_id     INT NOT NULL,
     course_id       INT NOT NULL
@@ -77,6 +76,15 @@ CREATE TABLE Independent_work(
     student_id          INT NOT NULL,
     task                VARCHAR(1000) NOT NULL
 );
+
+-- !!!!!!!!
+CREATE TABLE Course_program_Independent_work
+(
+    id                INT PRIMARY KEY,
+    course_program_id INT NOT NULL,
+    ind_work_id       INT NOT NULL
+);
+
 
 CREATE TABLE "Group"(
     id          INT PRIMARY KEY,
@@ -120,8 +128,14 @@ CREATE TABLE Teacher(
 
 ALTER TABLE
     Mark ADD CONSTRAINT "mark_semester_id_foreign" FOREIGN KEY("semester_id") REFERENCES Semester("id");
+
+
+-- ALTER TABLE
+--     Course ADD CONSTRAINT "course_program_id_foreign" FOREIGN KEY("program_id") REFERENCES Course_program("id");
 ALTER TABLE
-    Course ADD CONSTRAINT "course_program_id_foreign" FOREIGN KEY("program_id") REFERENCES Course_program("id");
+    Course_program ADD CONSTRAINT "course_id_foreign" FOREIGN KEY("course_id") REFERENCES Course("id");
+
+
 ALTER TABLE
     Mark ADD CONSTRAINT "mark_student_id_foreign" FOREIGN KEY("student_id") REFERENCES Student("id");
 ALTER TABLE
@@ -130,8 +144,8 @@ ALTER TABLE
     Mark ADD CONSTRAINT "mark_course_id_foreign" FOREIGN KEY("course_id") REFERENCES Course("id");
 ALTER TABLE
     Syllabus ADD CONSTRAINT "syllabus_semester_id_foreign" FOREIGN KEY("semester_id") REFERENCES Semester("id");
-ALTER TABLE
-    Course_program ADD CONSTRAINT "course_program_ind_work_id_foreign" FOREIGN KEY("ind_work_id") REFERENCES Independent_work("id");
+-- ALTER TABLE
+--     Course_program ADD CONSTRAINT "course_program_ind_work_id_foreign" FOREIGN KEY("ind_work_id") REFERENCES Independent_work("id");
 ALTER TABLE
     Schedule ADD CONSTRAINT "schedule_teacher_foreign" FOREIGN KEY("teacher_id") REFERENCES Teacher("id");
 ALTER TABLE
@@ -154,6 +168,12 @@ ALTER TABLE
     Schedule ADD CONSTRAINT "schedule_group_foreign" FOREIGN KEY("group_id") REFERENCES "Group"("id");
 
 ALTER TABLE
-    Schedule_сourse ADD CONSTRAINT "schedule_course_id_foreign" FOREIGN KEY("course_id") REFERENCES Course("id");
+    Schedule_course ADD CONSTRAINT "schedule_course_id_foreign" FOREIGN KEY("course_id") REFERENCES Course("id");
 ALTER TABLE
-    Schedule_сourse ADD CONSTRAINT "schedule_course_schedule_id_foreign" FOREIGN KEY("schedule_id") REFERENCES Schedule("id");
+    Schedule_course ADD CONSTRAINT "schedule_course_schedule_id_foreign" FOREIGN KEY("schedule_id") REFERENCES Schedule("id");
+
+ALTER TABLE
+    Course_program_Independent_work ADD CONSTRAINT "course_program_ind_work_id_foreign" FOREIGN KEY ("ind_work_id") REFERENCES Independent_work ("id");
+
+ALTER TABLE
+    Course_program_Independent_work ADD CONSTRAINT "course_program_id_foreign" FOREIGN KEY ("course_program_id") REFERENCES Course_program ("id");
