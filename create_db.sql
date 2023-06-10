@@ -126,16 +126,11 @@ CREATE TABLE Teacher(
     salary          INT NOT NULL
 );
 
+-- составление зависимостей между таблицами
 ALTER TABLE
     Mark ADD CONSTRAINT "mark_semester_id_foreign" FOREIGN KEY("semester_id") REFERENCES Semester("id");
-
-
--- ALTER TABLE
---     Course ADD CONSTRAINT "course_program_id_foreign" FOREIGN KEY("program_id") REFERENCES Course_program("id");
 ALTER TABLE
     Course_program ADD CONSTRAINT "course_id_foreign" FOREIGN KEY("course_id") REFERENCES Course("id");
-
-
 ALTER TABLE
     Mark ADD CONSTRAINT "mark_student_id_foreign" FOREIGN KEY("student_id") REFERENCES Student("id");
 ALTER TABLE
@@ -144,8 +139,6 @@ ALTER TABLE
     Mark ADD CONSTRAINT "mark_course_id_foreign" FOREIGN KEY("course_id") REFERENCES Course("id");
 ALTER TABLE
     Syllabus ADD CONSTRAINT "syllabus_semester_id_foreign" FOREIGN KEY("semester_id") REFERENCES Semester("id");
--- ALTER TABLE
---     Course_program ADD CONSTRAINT "course_program_ind_work_id_foreign" FOREIGN KEY("ind_work_id") REFERENCES Independent_work("id");
 ALTER TABLE
     Schedule ADD CONSTRAINT "schedule_teacher_foreign" FOREIGN KEY("teacher_id") REFERENCES Teacher("id");
 ALTER TABLE
@@ -174,6 +167,5 @@ ALTER TABLE
 
 ALTER TABLE
     Course_program_Independent_work ADD CONSTRAINT "course_program_ind_work_id_foreign" FOREIGN KEY ("ind_work_id") REFERENCES Independent_work ("id");
-
 ALTER TABLE
     Course_program_Independent_work ADD CONSTRAINT "course_program_id_foreign" FOREIGN KEY ("course_program_id") REFERENCES Course_program ("id");
