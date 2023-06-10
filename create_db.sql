@@ -1,14 +1,14 @@
 CREATE TABLE Building(
-    id      INT PRIMARY KEY ,
-    name    VARCHAR(200),
-    address VARCHAR(250)
+    id          INT PRIMARY KEY ,
+    name        VARCHAR(200),
+    address     VARCHAR(250)
 );
 
 CREATE TABLE Syllabus(
-    id          INT PRIMARY KEY ,
-    course_id   INT NOT NULL,
-    semester_id INT NOT NULL,
-    description VARCHAR(500) NOT NULL
+    id              INT PRIMARY KEY ,
+    course_id       INT NOT NULL,
+    semester_id     INT NOT NULL,
+    description     VARCHAR(500) NOT NULL
 );
 
 CREATE TABLE Course(
@@ -94,36 +94,36 @@ CREATE TABLE "Group"(
 );
 
 CREATE TABLE Mark(
-    id          INT PRIMARY KEY,
-    mark        INT NOT NULL,
-    course_id   INT NOT NULL,
-    semester_id INT NOT NULL,
-    student_id  INT NOT NULL
+    id              INT PRIMARY KEY,
+    mark            INT NOT NULL,
+    course_id       INT NOT NULL,
+    semester_id     INT NOT NULL,
+    student_id      INT NOT NULL
 );
 
 CREATE TABLE Student(
-    id          INT PRIMARY KEY,
-    first_name  VARCHAR(50) NOT NULL,
-    middle_name VARCHAR(50) NOT NULL,
-    last_name   VARCHAR(50) NOT NULL,
-    gender      VARCHAR(10) NOT NULL,
-    birthday    DATE NOT NULL,
-    email       VARCHAR(100) NOT NULL,
-    phone       VARCHAR(11) NOT NULL,
-    group_id    INT NOT NULL
+    id              INT PRIMARY KEY,
+    first_name      VARCHAR(50) NOT NULL,
+    middle_name     VARCHAR(50) NOT NULL,
+    last_name       VARCHAR(50) NOT NULL,
+    gender          VARCHAR(10) NOT NULL,
+    birthday        DATE NOT NULL,
+    email           VARCHAR(100) NOT NULL,
+    phone           VARCHAR(11) NOT NULL,
+    group_id        INT NOT NULL
 );
 
 CREATE TABLE Teacher(
-    id INT PRIMARY KEY,
-    first_name VARCHAR(50) NOT NULL,
-    middle_name VARCHAR(50) NOT NULL,
-    last_name VARCHAR(50) NOT NULL,
-    gender VARCHAR(10) NOT NULL,
-    birthday DATE NOT NULL,
-    email VARCHAR(100) NOT NULL,
-    phone VARCHAR(11) NOT NULL,
-    grade VARCHAR(30) NOT NULL,
-    salary INTEGER NOT NULL
+    id              INT PRIMARY KEY,
+    first_name      VARCHAR(50) NOT NULL,
+    middle_name     VARCHAR(50) NOT NULL,
+    last_name       VARCHAR(50) NOT NULL,
+    gender          VARCHAR(10) NOT NULL,
+    birthday        DATE NOT NULL,
+    email           VARCHAR(100) NOT NULL,
+    phone           VARCHAR(11) NOT NULL,
+    grade           VARCHAR(30) NOT NULL,
+    salary          INT NOT NULL
 );
 
 ALTER TABLE
