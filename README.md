@@ -5,12 +5,12 @@
 ## Установка
 
 ```angular2html
-    git clone https://github.com/MashkaCoder/university_management_systems.git
-    cd university_management_systems
+git clone https://github.com/MashkaCoder/university_management_systems.git
+cd university_management_systems
 ```
 Создайте виртуальное окружение и установите необходимые библиотеки
 ```angular2html
-    pip install -r requirements.txt
+pip install -r requirements.txt
 ```
 
 ## Настройка базы данных
@@ -24,7 +24,7 @@
 
 1. Запустите API-сервер с помощью команды:
 ```angular2html
-    uvicorn api_point:app --reload
+uvicorn api_point:app --reload
 ```
 2. Приложение будет доступно по адресу `http://localhost:8000`.
 
