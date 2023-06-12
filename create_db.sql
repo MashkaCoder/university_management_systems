@@ -77,14 +77,12 @@ CREATE TABLE Independent_work(
     task                VARCHAR(1000) NOT NULL
 );
 
--- !!!!!!!!
 CREATE TABLE Course_program_Independent_work
 (
     id                INT PRIMARY KEY,
     course_program_id INT NOT NULL,
     ind_work_id       INT NOT NULL
 );
-
 
 CREATE TABLE "Group"(
     id          INT PRIMARY KEY,
