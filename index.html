@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ol, p{
+            font-size: 20px;
+        }
+        body{
+            margin-left: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>API для Системы управления университетом</h1>
+    <p>В данном проекте реализованные сделующие точки входа</p>
+    <ol>
+         <li>POST /students - создать нового студента.</li>
+        <li>GET /students/{student_id} - получить информацию о студенте по его id.</li>
+         <li>PUT /students/{student_id} - обновить информацию о студенте по его id.</li>
+         <li>DELETE /students/{student_id} - удалить студента по его id.</li>
+         <li>GET /teachers - получить список всех преподавателей.</li>
+         <li>POST /courses - создать новый курс.</li>
+         <li>GET /courses/{course_id} - получить информацию о курсе по его id.</li>
+         <li>GET /courses/{course_id}/students - получить список всех студентов на курсе.</li>
+         <li>POST /grades - создать новую оценку для студента по курсу.</li>
+         <li>PUT /grades/{grade_id} - обновить оценку студента по курсу.</li>
+    </ol>
+    <p>Для просмотра документации и тестирования точек входа перейдите по адесу /docs</p>
+</body>
+</html>
