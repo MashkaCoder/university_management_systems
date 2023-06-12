@@ -34,7 +34,7 @@
 
 
 ## ER-диаграма
-[!er_diagram](er_diagram.png)
+![er_diagram](er_diagram.png)
 
 ## Описание сущностей и их свойств
 <details>
